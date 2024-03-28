@@ -39,6 +39,17 @@ function CityPicker() {
   const [selectedCity, setSelectedCity] = useState<cityOption>(null);
   const router = useRouter();
 
+  const handleSelectedCountry = (option: option) => {
+    setSelectedCountry(option);
+    setSelectedCity(null);
+  };
+  const handleSelectedCity = (option: cityOption) => {
+    setSelectedCity(option);
+    router.push(
+      `/location/${option?.value.latitude}/${option?.value.longitude}`
+    );
+  };
+
   return (
     <div className="space-y-4">
       <div className="space-y-2">
